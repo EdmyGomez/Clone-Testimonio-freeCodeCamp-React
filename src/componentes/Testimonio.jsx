@@ -1,20 +1,24 @@
 import React from 'react';
 import '../styles/Testimonio.css'
 
-function Testimonio(){
+function Testimonio(props){
   return(
     <div className="contenedor-testimonio">
-      <img className="imagen-testimonio" src={require("../imagenes/aiony-haust-3TLl_97HNJo-unsplash.jpg")} alt="Foto de Aiony" srcset="" />
+      {/* Crear imagenes sencillas con React */}
+      {/* <img className="imagen-testimonio" src={require("../imagenes/aiony-haust-3TLl_97HNJo-unsplash.jpg")} alt="Foto de Aiony" srcset="" /> */}
+      {/* Uso de Comillas invertidas para poder usar props en las imagenes */}
+
+      <img className="img-fluid rounded img-responsive imagen-testimonio" src={require(`../imagenes/testimonio-${props.imagen}.jpg`)} alt={`Foto de ${props.nombre}`} srcset="" />
+
       <div className="contenedor-texto-testimonio">
         <p className="nombre-testimonio">
-          <strong>Emms Bostian </strong>en Colombia
+          <strong>{props.nombre}</strong> en {props.pais}
         </p>
         <p className="cargo-testimonio">
-          
-          Ingeniera de Software en <strong>Globant</strong>
+          {props.cargo} en <strong>{props.empresa}</strong>
         </p>
         <p className="texto-testimonio">
-        "Siempre he tenido problemas para aprender JavaScript. He tomado muchos cursos, pero el curso de freeCodeCamp fue el que se quedó. Estudiar JavaScript, así como estructuras de datos y algoritmos en freeCodeCamp me dio las habilidades y la confianza que necesitaba para conseguir el trabajo de mis sueños como ingeniero de software en Spotify."
+          "{props.testimonio}"
         </p>
       </div>
     
